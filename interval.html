@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script type="text/javascript">
+      /*
+      document.addEventListener('DOMContentLoaded', function(){
+        setInterval(count, 1000);
+        //execute count() every 1000 ms which is equal to 1ss
+      });
+
+      let counter = 0;
+
+      function count(){
+        counter += 1;
+        document.querySelector('h1').innerHTML = counter;
+      }
+      */
+
+      if (!localStorage.getItem('counter'))
+        localStorage.setItem('counter', 0);
+
+      document.addEventListener('DOMContentLoaded',function(){
+        document.querySelector('h1').innerHTML = localStorage.getItem('counter')
+        document.querySelector('button').onclick = function(){
+          let counter = localStorage.getItem('counter');
+          counter++;
+          document.querySelector('h1').innerHTML = counter;
+          localStorage.setItem('counter', counter);
+        }
+      });
+    </script>
+  </head>
+  <body>
+    <h1>0</h1>
+    <button type="button" name="button">Click here!</button>
+  </body>
+</html>

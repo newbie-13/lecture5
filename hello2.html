@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>My website</title>
+    <script type="text/javascript">
+      document.addEventListener('DOMContentLoaded', function(){
+        document.querySelector('.form').onsubmit = function(){
+          var name = document.querySelector('#name').value;
+          if (name != ""){
+            alert(`Hello, ${name}!`);
+          }
+          else {
+            alert("ERROR: Your name is invalid");
+          }
+        };
+      });
+
+      /*
+      document.addEventListener('DOMContentLoaded', function(){
+        document.querySelector('#red').onclick = function(){
+          document.querySelector('h1').style.color = 'red';
+        };
+        document.querySelector('#blue').onclick = function(){
+          document.querySelector('h1').style.color = 'blue';
+        };
+        document.querySelector('#green').onclick = function(){
+          document.querySelector('h1').style.color = 'green';
+        };
+      });
+
+      document.addEventListener('DOMContentLoaded', function(){
+        document.querySelectorAll('.color-change').forEach(function(button){
+          button.onclick = function(){
+            document.querySelector('h1').style.color = button.dataset.color;
+          };
+        });
+      });
+      */
+
+      document.addEventListener('DOMContentLoaded', () => {
+        document.querySelectorAll('.color-change').forEach(button => {
+          button.onclick = () => {
+            document.querySelector('h1').style.color = button.dataset.color;
+          };
+        });
+      });
+
+      document.addEventListener('DOMContentLoaded', () => {
+        document.querySelector('.color-select').onchange = function() {
+            document.querySelector('h1').style.color = this.value;
+        };
+      });
+    </script>
+  </head>
+  <body>
+    <form class="form" action="index.html" method="post">
+      <input type="text" id="name" placeholder="Name">
+      <button type="submit" name="button">Submit</button>
+    </form>
+    <br>
+
+    <h1>Hello!</h1>
+    <button type="button" name="button" id="red" class="color-change" data-color="red">Red</button>
+    <button type="button" name="button" id="blue" class="color-change" data-color="blue">Blue</button>
+    <button type="button" name="button" id="green" class="color-change" data-color="green">Green</button>
+    <br>
+    <select class="color-select" name="">
+      <option value=""></option>
+      <option value="red">red</option>
+      <option value="blue">blue</option>
+      <option value="green">green</option>
+    </select>
+  </body>
+</html>
